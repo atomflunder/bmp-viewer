@@ -86,9 +86,9 @@ class Bmp
     def to_grayscale
         for y in 0..@height - 1 do
             for x in 0..@width - 1 do
-                red_i = @image_bytes[y][x][0].to_i(16)
+                red_i = @image_bytes[y][x][2].to_i(16)
                 green_i = @image_bytes[y][x][1].to_i(16)
-                blue_i = @image_bytes[y][x][2].to_i(16)
+                blue_i = @image_bytes[y][x][0].to_i(16)
 
                 gray = (red_i * 0.2125 + green_i * 0.7154 + blue_i * 0.0721).round.to_s(16)
 
