@@ -69,5 +69,32 @@ class Bmp
             puts
         end
     end
+
+    def mirror_bmp
+        @image_bytes.each { |r| r.reverse! }
+    end
+
+    def rotate_90
+        old_width = @width
+        @width = @height
+        @height = old_width
+
+        @image_bytes = @image_bytes.transpose
+        mirror_bmp
+    end
+
+    def to_grayscale
+        for y in 0..@height - 1 do
+            for x in 0..@width - 1 do
+                red_i = @image_bytes[y][x][0].to_i(16)
+                green_i = @image_bytes[y][x][1].to_i(16)
+                blue_i = @image_bytes[y][x][2].to_i(16)
+
+                gray = (red_i * 0.2125 + green_i * 0.7154 + blue_i * 0.0721).round.to_s(16)
+
+                @image_bytes[y][x] = [gray, gray, gray]
+            end
+        end
+    end
 end
 
