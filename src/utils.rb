@@ -4,9 +4,9 @@ module Utils
             return
         end
 
-        red   = rgb[2].to_i(16)
+        red   = rgb[0].to_i(16)
         green = rgb[1].to_i(16)
-        blue  = rgb[0].to_i(16)
+        blue  = rgb[2].to_i(16)
 
         print "\033[48;2;#{red};#{green};#{blue}m  \033[0m"
     end
