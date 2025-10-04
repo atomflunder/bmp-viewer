@@ -4,6 +4,17 @@ A 24 Bit RGB uncompressed Bitmap file viewer for your terminal written in Ruby.
 
 ## Usage
 
+```rb
+# main.rb
+
+bmp = Bmp.from_file_path("./input/rgb24.bmp")
+
+rotated = bmp.rotate_90
+gray_rotated = rotated.grayscale
+
+gray_rotated.print_bmp
+```
+
 ```bash
 ruby main.rb
 ```
